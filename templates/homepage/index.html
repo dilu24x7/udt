@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}{% endblock %}
+{% block body %}
+{% for e in entries %}
+<div>{{e.title}} {{e.created}}</div>
+<div>{{e.text}}</div>
+{% endfor %}
+{% endblock %}
+

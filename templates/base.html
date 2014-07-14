@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>{% block title %}{% endblock %}</title>
+{% block head %}{% endblock %}
+<link rel="stylesheet" href="{{ MEDIA_URL }}css/main.css">
+</head>
+<body>
+{% block nav %}
+<div id="topnav">
+<a href="{% url homepage %}">Home</a>
+<a href="{% url homepage_about %}">About</a>
+<a href="{% url homepage_contact %}">Contact</a>
+</div>
+{% endblock %}
+{% block body %}{% endblock %}
+</body>
+</html>

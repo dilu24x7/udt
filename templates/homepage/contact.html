@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+{% block body %}
+<p>Dilu Sasidharan</p>
+<p>Email : dilu.seven@gmail.com</p>
+<p>Mobile : 9483638907</p>
+{% if success %}
+<p>Data send</p>
+<p>Email: {{email}}</p>
+<p>Phone : {{phone}}</p>
+<p>Message : {{message}}</p>
+{% else %}
+<form action="." method="POST" >
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Send">
+<input type="reset" value="Reset">
+</form>
+{% endif %}
+{% endblock %}
