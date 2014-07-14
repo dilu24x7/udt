@@ -2,13 +2,22 @@ from django.shortcuts import render_to_response
 from apps.data.models import *
 from django.template import RequestContext
 from apps.homepage.forms import ContactForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 from django.core.mail import send_mail
 
 
 def index(request):
-    print "im er"
-    entries = Entry.objects.published_entries()
+    entrieslist = Entry.objects.published_entries()
+    paginator = Paginator(entrieslist, 3)
+    pageno = request.GET.get('page')
+    try:
+        entries = paginator.page(pageno)
+    except PageNotAnInteger:
+        entries = paginator.page(1)
+    except EmptyPage:
+        entries = paginator.page(paginator.num_pages)
     send_data = {'entries': entries}
     return render_to_response('homepage/index.html',send_data,context_instance=RequestContext(request))
 
