@@ -3,6 +3,7 @@ from apps.data.models import *
 from django.template import RequestContext
 from apps.homepage.forms import ContactForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
 
 
 from django.core.mail import send_mail
@@ -41,3 +42,8 @@ def contact(request):
         form = ContactForm()
     send_data = {'form':form,'success':success,'email':email,'phone':phone,'message':message}
     return render_to_response('homepage/contact.html',send_data,context_instance=RequestContext(request))
+
+@login_required
+def profile(request):
+    send_data = {}
+    return render_to_response('homepage/profile.html',send_data,context_instance=RequestContext(request))

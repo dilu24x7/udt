@@ -171,3 +171,6 @@ EMAIL_HOST_USER = 'dilu.seven@gmail.com'
 EMAIL_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'

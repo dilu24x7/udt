@@ -10,6 +10,11 @@
 <a href="{% url homepage %}">Home</a>
 <a href="{% url homepage_about %}">About</a>
 <a href="{% url homepage_contact %}">Contact</a>
+{% if user.is_authenticated %}
+Welcome {{user}}<a href="{% url homepage_logout %}">logout</a>
+{% else %}
+<a href="{% url homepage_login %}">login</a>
+{% endif %}
 </div>
 {% endblock %}
 {% block body %}{% endblock %}
