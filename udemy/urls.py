@@ -1,3 +1,4 @@
+from udemy import settings
 from django.conf.urls import patterns, include, url
 from sitemaps import BlogSitemap
 
@@ -8,10 +9,10 @@ sitemaps = {
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
-from udemy import settings
-print settings.MEDIA_ROOT
+
 urlpatterns = patterns('',
     url(r'^', include('apps.homepage.urls')),
+    url(r'^', include('apps.accounts.urls')),
     # Examples:
     # url(r'^$', 'udemy.views.home', name='home'),
     # url(r'^udemy/', include('udemy.foo.urls')),

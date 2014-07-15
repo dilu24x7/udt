@@ -11,9 +11,10 @@
 <a href="{% url homepage_about %}">About</a>
 <a href="{% url homepage_contact %}">Contact</a>
 {% if user.is_authenticated %}
-Welcome {{user}}<a href="{% url homepage_logout %}">logout</a>
+Welcome {{profile.user}}<a href="{% url accounts_logout %}">logout</a>
 {% else %}
-<a href="{% url homepage_login %}">login</a>
+<a href="{% url accounts_login %}">login</a>
+<a href="{% url accounts_register %}">register</a>
 {% endif %}
 </div>
 {% endblock %}

@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     #'django.contrib.staticfiles',
     'apps.data',
+    'apps.accounts',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -172,5 +173,8 @@ EMAIL_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/profile/'
 LOGIN_URL = '/login/'
+
+AUTHENTICATION_BACKENDS = ('apps.accounts.auth.backends.MyModelBackend',)
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
